@@ -2,36 +2,45 @@
 #include <stdlib.h>
 #include <math.h>
 //Función para cambiar de pesos a dólares
-float dolares(float a, float b)
+float pesosAdolares(float a, float b)
 {
-    return a * b;
+    return b / a;
 
 }
-
-float pesos(float b, float c)
+//Función para cambiar de dólares a pesos
+float dolaresApesos(float a, float b)
 {
-    return b * c;
+    return a * b;
 }
 
 int main()
 {
-    int tipocambio;
-
-    printf("Si quieres cambiar de dolares a pesos escribe 1, si quieres cambiar de pesos a dolares escribe 2: ")
+printf("Convertidor de pesos a dolares:\n");
+    //se declaran las variables
+        float a = 24.14;
+        float b;
+        int tipocambio;
+//Se pregunta a que divisa se va a hacer el cambio
+    printf("\n Si quieres cambiar de dolares a pesos mexicanos escribe 1, si quieres cambiar de pesos a dolares escribe 2: ");
     scanf("%i", &tipocambio);
 
-//se declaran las variables
-        float a = 0.043;
-        float b;
-    printf("Convertidor de pesos a dolares:\n");
-//Se pide el núimero base
-    printf("\n Ingresa el valor en pesos: ");
-    scanf("%f", &b);
-
-//Se guarda el resultado
-    float dolaresRes = dolares(a,b);
-//Se imprime el resultado
-    printf("\n %f pesos son: %f dolares \n", b, dolaresRes);
+//Se pide la cantidad a cambiar, se realiza el cambio y se imprime el resultado
+    if (tipocambio == 1)
+    {
+        printf("\n Escribe la cantidad que quieres cambiar: ");
+        scanf("%f", &b);
+        printf("\n %f dolares son %f pesos mexicanos\n", b, dolaresApesos(a,b));
+    }
+    else if (tipocambio == 2)
+    {
+        printf("\n Escribe la cantidad que quieres cambiar: ");
+        scanf("%f", &b);
+        printf("\n %f pesos mexicanos son %f dolares\n", b, pesosAdolares(a,b));
+    }
+    else
+    {
+        printf("\n Por favor selecciona una opcion valida!\n ");
+    }
 
 
     return 0;
