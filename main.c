@@ -1,32 +1,37 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
 
-char publicText[] = {"Texto en una variable global"};
+char NombreAlumno[] = {""};
+float Calificacion;
 
-void check ()
+void evaluacion()
 {
-    printf("\n Imprimir desde la funcion: check");
+    if ((Calificacion >= 7 ) && (Calificacion <= 10))
+    {
+        printf("\n %s esta aprobado \n", NombreAlumno);
+    }
+    else if (Calificacion < 7)
+    {
+        printf("\n %s esta reprobado \n", NombreAlumno);
+    }
+    else
+    {
+        printf("\n Por favor ingresa una calificacion valida \n");
+    }
 
-    printf("Variable global: \n");
-    printf("%s", publicText);
-
-    printf("Variable local: \n");
-    // printf("%s", privateText);
 }
 
 int main()
 {
-    printf("Variables globales!\n");
+    printf("Reto usando variables globales\n");
 
-    char privateText[] = {"Texto en una variable local. \n"};
-    printf("Variable global: \n");
-    printf("%s", publicText);
+    printf("\n Escribe el nombre del alumno: ");
+    scanf("%s", &NombreAlumno);
 
-    printf("Variable local: \n");
-    printf("%s", privateText);
+    printf("\n Ingresa su calificacion del 1 al 10: ");
+    scanf("%f", &Calificacion);
 
-    check();
+    evaluacion();
 
     return 0;
 }
